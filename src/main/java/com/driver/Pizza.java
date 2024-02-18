@@ -13,6 +13,7 @@ public class Pizza {
     private boolean isExtraToppingDone = false;
     private boolean isExtraCheseeDone = false;
     private boolean isTakeAwayDone = false;
+    private boolean isBillingDone = false;
 
 
     public Pizza(Boolean isVeg){
@@ -72,9 +73,22 @@ public class Pizza {
 
     public String getBill(){
         // your code goes here
-        this.bill =   "Base Price Of The Pizza: "+basePrice+ "\nExtra Cheese Added: 80"+
-                "\nExtra Toppings Added: "+toppingPrice
-                +"\nPaperbag Added: 20"+"\nTotal Price: "+price;
+        if(!isBillingDone) {
+            this.bill = "Base Price Of The Pizza: " + basePrice;
+
+            if (isExtraCheseeDone) {
+                this.bill += "\nExtra Cheese Added: 80";
+            }
+
+            if (isExtraToppingDone) {
+                this.bill += "\nExtra Toppings Added: " + toppingPrice;
+            }
+
+            if (isTakeAwayDone) {
+                this.bill += "\nPaperbag Added: 20";
+            }
+
+            this.bill += "\nTotal Price: "+price;
+        }
         return this.bill;
-    }
-}
+}}
