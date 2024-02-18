@@ -89,6 +89,7 @@ public class Pizza {
             }
 
             this.bill += "\nTotal Price: "+getPrice();
+            isBillingDone = true;
         }
         return this.bill;
 }}
